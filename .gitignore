@@ -1,0 +1,14 @@
+
+*.bin
+
+ScalarWebApi/.vs/ScalarWebApi/config/
+
+ScalarWebApi/.vs/ScalarWebApi/v17/
+
+ScalarWebApi/bin/Debug/net8.0/
+
+ScalarWebApi/obj/Debug/net8.0/
+
+ScalarWebApi/obj/
+
+ScalarWebApi/.vs/ScalarWebApi/DesignTimeBuild/
