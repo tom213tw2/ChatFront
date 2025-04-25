@@ -28,10 +28,11 @@ namespace ScalarWebApi
                 });
                 
                 options.ExampleFilters();
-                // Åª¨ú XML µù¸ÑÀÉ
+               
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-                options.IncludeXmlComments(xmlPath);
+                
+                options.IncludeXmlComments(xmlPath,true);
                
             });
 
@@ -43,15 +44,21 @@ namespace ScalarWebApi
             {
                 app.UseSwagger();
 
+                app.UseSwaggerUI(options =>
+                {
+                    options.SwaggerEndpoint("/swagger/v1/swagger.json", "Scare API V1");
+                    options.RoutePrefix = "swagger";
+                });
 
+                // âœ… ReDoc
+                app.UseReDoc(options =>
+                {
+                    options.RoutePrefix = "docs";
+                    options.DocumentTitle = "Scare API æ–‡ä»¶";
+                    options.SpecUrl = "/swagger/v1/swagger.json";
+                });
 
-                //app.UseScalar(options =>
-                //    {
-                //        options.UseTheme(Theme.Saturn);
-                //        options.RoutePrefix = "docs";
-
-                //    }
-                //);
+                
                 app.MapScalarApiReference("/scalar", options =>
                 {
                     options.OpenApiRoutePattern = "/swagger/v1/swagger.json";
@@ -59,13 +66,14 @@ namespace ScalarWebApi
                     options.DarkMode = false;
                     options.DotNetFlag = true;
                     options.HideDownloadButton = true;
+                    options.HideModels = true;
                 });
-                app.UseSwaggerUI();
+               
             }
 
             app.UseAuthorization();
 
-
+            app.UseStaticFiles();
             app.MapControllers();
 
             app.Run();

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scare API 文件</title>
+
+    <!-- Stoplight CSS + JS（指定穩定版本） -->
+    <link rel="stylesheet" href="https://unpkg.com/@stoplight/elements@7.9.0/styles.min.css" />
+    <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
+
+    <!-- 字體（柔和風格） -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- 自訂柔和企業風 CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans TC', 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+
+        elements-api {
+            --theme-font-family: 'Noto Sans TC', sans-serif;
+            --theme-background-color: white;
+            --theme-text-color: #333;
+            --theme-primary-color: #3a80d9; /* 柔和藍 */
+            --theme-border-radius: 12px;
+
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 2.5rem 3rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+
+        h1, h2, h3 {
+            color: #2c3e50;
+            font-weight: 600;
+            margin-top: 2rem;
+        }
+
+        code, pre {
+            background-color: #f0f4f8;
+            border-radius: 6px;
+            font-family: 'Fira Code', monospace;
+            padding: 0.3em 0.5em;
+            display: inline-block;
+        }
+
+        .elements-api-description {
+            font-size: 1.05rem;
+            color: #4a4a4a;
+            line-height: 1.8;
+        }
+
+        .custom-footer {
+            background-color: #e9edf1; /* 淺藍灰，區隔主灰底 */
+            padding: 2rem 1rem;
+            margin-top: 4rem;
+            border-top: 1px solid #d0d5da;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            color: #555;
+        }
+
+        .footer-brand {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #3a80d9;
+            margin-bottom: 0.3rem;
+        }
+
+        .footer-text {
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* 移除 Stoplight 預設 footer */
+        .sidebar a[href*="stoplight.io"] {
+            display: none !important;
+        }
+
+    </style>
+</head>
+
+<body>
+<elements-api
+        apiDescriptionUrl="/swagger/v1/swagger.json"
+        layout="sidebar"
+        router="hash"
+        tryItCredentialsPolicy="same-origin"
+        hideTryIt="true"
+        hideExport="true"
+        hideSchemas="true"
+        layout="responsive">
+</elements-api>
+
+
+
+<footer class="custom-footer">
+    <div class="footer-container">
+        <div class="footer-brand">Scare Company</div>
+        <div class="footer-text">© 2025 Scare Company ｜ 本系統為內部使用 · 保留所有權利</div>
+    </div>
+</footer>
+
+</body>
+</html>

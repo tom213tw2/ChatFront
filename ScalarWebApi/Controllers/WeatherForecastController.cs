@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using Swashbuckle.AspNetCore.Filters;
 
 namespace ScalarWebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    // [Route("[controller]")]
+    [Route("api")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -27,13 +27,13 @@ namespace ScalarWebApi.Controllers
         /// - One
         /// - Two
         /// - Three
-        /// ### ±¡¹Ò1: ·s¼W (¨Ï¥Î«ü©wPID)
+        /// ### æƒ…å¢ƒ1: æ–°å¢ (ä½¿ç”¨æŒ‡å®šPID)
         /// ```
         /// {
         ///  "Account":"D112132146","Channel":"3WK","UserIP":"1.2.3.4"
         /// ,"PID": "1-202140820"
-        /// ,"Subject": "¼ĞÃD"
-        /// ,"Body": "¤º¤å"
+        /// ,"Subject": "æ¨™é¡Œ"
+        /// ,"Body": "å…§æ–‡"
         /// ,"FunctionID": "1010005"
         /// ,"PushData": ""
         /// ,"NotifyAction": "10"
@@ -46,13 +46,13 @@ namespace ScalarWebApi.Controllers
         /// }
         /// ```
         /// 
-        /// ### ±¡¹Ò2: ·s¼W (¤£«ü©wPID)
+        /// ### æƒ…å¢ƒ2: æ–°å¢ (ä¸æŒ‡å®šPID)
         /// ```
         /// {
         ///  "Account":"D112132146","Channel":"3WK","UserIP":"1.2.3.4"
         /// ,"PID": ""
-        /// ,"Subject": "¼ĞÃD"
-        /// ,"Body": "¤º¤å"
+        /// ,"Subject": "æ¨™é¡Œ"
+        /// ,"Body": "å…§æ–‡"
         /// ,"FunctionID": "1010005"
         /// ,"PushData": ""
         /// ,"NotifyAction": "10"
@@ -65,13 +65,13 @@ namespace ScalarWebApi.Controllers
         /// }
         /// ```
         /// 
-        /// ### ±¡¹Ò3: §ó·s
+        /// ### æƒ…å¢ƒ3: æ›´æ–°
         /// ```
         /// {
         ///  "Account":"D112132146","Channel":"3WK","UserIP":"1.2.3.4"
         /// ,"PID": "1-202140820"
-        /// ,"Subject": "¼ĞÃD§ó·s"
-        /// ,"Body": "¤º¤å"
+        /// ,"Subject": "æ¨™é¡Œæ›´æ–°"
+        /// ,"Body": "å…§æ–‡"
         /// ,"FunctionID": "1010005"
         /// ,"PushData": ""
         /// ,"NotifyAction": "10"
@@ -83,13 +83,14 @@ namespace ScalarWebApi.Controllers
         /// ,"UpdateUser": ""
         /// }
         /// ```
-        /// ### ±¡¹Ò2: ¨ú±o«È¤á«ü©w±b¸¹-±b°ÈÃş¹q¤l³ø«È¤á­q¾\¿ï
-        /// |Äæ¦ì¦WºÙ|´y­z|
+        /// ### æƒ…å¢ƒ2: å–å¾—å®¢æˆ¶æŒ‡å®šå¸³è™Ÿ-å¸³å‹™é¡é›»å­å ±å®¢æˆ¶è¨‚é–±é¸
+        /// |æ¬„ä½åç¨±|æè¿°|
         /// |-----|-----|
-        /// |Account|¨Ï¥ÎªÌ±b¸¹¸ê°T|
-        /// |BrkID|¤À¤½¥q¥N¸¹|
-        /// |CstAccount|±b¸¹|
-        /// |Category|Ãş§O(1,4:½Æ©e°U)|
+        /// |Account|ä½¿ç”¨è€…å¸³è™Ÿè³‡è¨Š|
+        /// |BrkID|åˆ†å…¬å¸ä»£è™Ÿ|
+        /// |CstAccount|å¸³è™Ÿ|
+        /// |Category|é¡åˆ¥(1,4:è¤‡å§”è¨—)|
+        /// 
         /// ```
         /// {
         ///    "Account": "A110000004",
@@ -99,115 +100,160 @@ namespace ScalarWebApi.Controllers
         /// }
         /// ```
         ///
-        /// ### ¦^¶Ç
-        /// |Äæ¦ì¦WºÙ|´y­z|
+        /// ### å›å‚³
+        /// |æ¬„ä½åç¨±|æè¿°|
         /// |-----|-----|
-        /// |Account|¨Ï¥ÎªÌ±b¸¹¸ê°T|
-        /// |BrkID|¤À¤½¥q¥N¸¹|
-        /// |CstAccount|±b¸¹|
-        /// |CstName|«È¤á©m¦W|
-        /// |Category|Ãş§O(1,4:½Æ©e°U)|
-        /// |Email|«H½c|
-        /// |Privacynotice|Áô¨p±ø´Ú|
-        /// |Epaper_0001 |¥xªÑ§Y®É¦¨¥æ¦^³ø|
-        /// |Epaper_0002 |¥xªÑ¨C¤é¦¨¥æ¦^³ø|
-        /// |Epaper_0003 |¥xªÑ¨C¤é§ë¸ê©ú²Ó |
-        /// |Epaper_0004 |ªÑ¾ã¤áºû«ù²v³qª¾|
-        /// |Epaper_0005 |¥~°ê¦³»ùÃÒ¨é¨C¤é¥æ©ö©ú²Ó|
+        /// |Account|ä½¿ç”¨è€…å¸³è™Ÿè³‡è¨Š|
+        /// |BrkID|åˆ†å…¬å¸ä»£è™Ÿ|
+        /// |CstAccount|å¸³è™Ÿ|
+        /// |CstName|å®¢æˆ¶å§“å|
+        /// |Category|é¡åˆ¥(1,4:è¤‡å§”è¨—)|
+        /// |Email|ä¿¡ç®±|
+        /// |Privacynotice|éš±ç§æ¢æ¬¾|
+        /// |Epaper_0001 |å°è‚¡å³æ™‚æˆäº¤å›å ±|
+        /// |Epaper_0002 |å°è‚¡æ¯æ—¥æˆäº¤å›å ±|
+        /// |Epaper_0003 |å°è‚¡æ¯æ—¥æŠ•è³‡æ˜ç´° |
+        /// |Epaper_0004 |è‚¡æ•´æˆ¶ç¶­æŒç‡é€šçŸ¥|
+        /// |Epaper_0005 |å¤–åœ‹æœ‰åƒ¹è­‰åˆ¸æ¯æ—¥äº¤æ˜“æ˜ç´°|
         /// </remarks>
         /// <returns></returns>
-        [HttpPost(Name = "GetWeatherForecast")]
-        [SwaggerRequestExample(typeof(QueryEPaperInformationModal),typeof(QueryEPaperInformationModalExample))]
-        [SwaggerRequestExample(typeof(QueryEPaperInformationModal),typeof(QueryEPaperInformationModalExample))]
-        
-        public IEnumerable<WeatherForecast> Get([FromBody] QueryEPaperInformationModal modal)
+        [HttpPost]
+        [Route("GetWeatherForecast")]
+        [SwaggerRequestExample(typeof(PushRequestModel), typeof(PushRequestModelExample))]
+        public IEnumerable<WeatherForecast> Get([FromBody] PushRequestModel modal)
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+                {
+                    Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                    TemperatureC = Random.Shared.Next(-20, 55),
+                    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                })
+                .ToArray();
+        }
+
+        /// <summary>
+        /// GetAllDataV2
+        /// </summary>
+        /// <remarks>
+        ///
+        /// ### å›å‚³
+        /// |æ¬„ä½åç¨±|æè¿°|
+        /// |-----|-----|
+        /// |Account|ä½¿ç”¨è€…å¸³è™Ÿè³‡è¨Š|
+        /// |BrkID|åˆ†å…¬å¸ä»£è™Ÿ|
+        /// |CstAccount|å¸³è™Ÿ|
+        /// |CstName|å®¢æˆ¶å§“å|
+        /// |Category|é¡åˆ¥(1,4:è¤‡å§”è¨—)|
+        /// |Email|ä¿¡ç®±|
+        /// |Privacynotice|éš±ç§æ¢æ¬¾|
+        /// |Epaper_0001 |å°è‚¡å³æ™‚æˆäº¤å›å ±|
+        /// |Epaper_0002 |å°è‚¡æ¯æ—¥æˆäº¤å›å ±|
+        /// |Epaper_0003 |å°è‚¡æ¯æ—¥æŠ•è³‡æ˜ç´° |
+        /// |Epaper_0004 |è‚¡æ•´æˆ¶ç¶­æŒç‡é€šçŸ¥|
+        /// |Epaper_0005 |å¤–åœ‹æœ‰åƒ¹è­‰åˆ¸æ¯æ—¥äº¤æ˜“æ˜ç´°|
+        /// 
+        /// </remarks>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("GetWeatherForecastV2")]
+        public IEnumerable<WeatherForecast> GetV2()
+        {
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+                {
+                    Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                    TemperatureC = Random.Shared.Next(-20, 55),
+                    Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+                })
+                .ToArray();
         }
     }
 
-    public class QueryEPaperInformationModal: BaseModel
+    public class QueryEPaperInformationModal : BaseModel
     {
         /// <summary>
-        /// ¨­¥÷ÃÒ ²Î½s
+        /// èº«ä»½è­‰ çµ±ç·¨
         /// </summary>
         public string Eid { get; set; }
 
         /// <summary>
-        ///  4½X¤À¤½¥q¥N¸¹
+        ///  4ç¢¼åˆ†å…¬å¸ä»£è™Ÿ
         /// </summary>
         public string BrkID { get; set; }
 
         /// <summary>
-        /// 7½X±b¸¹	
+        /// 7ç¢¼å¸³è™Ÿ	
         /// </summary>
         public string CstAccount { get; set; }
 
         /// <summary>
-        /// Ãş§O(1,4:½Æ©e°U)
+        /// é¡åˆ¥(1,4:è¤‡å§”è¨—)
         /// </summary>
         public string Category { get; set; }
     }
 
     /// <summary>
-    /// ·|§¹¥ş¦@¥Î¨ìªºÄİ©Ê
+    /// æœƒå®Œå…¨å…±ç”¨åˆ°çš„å±¬æ€§
     /// </summary>
     public class BaseModel
     {
         /// <summary>
-        /// ¨Ï¥ÎªÌ±b¸¹¸ê°T 
+        /// ä½¿ç”¨è€…å¸³è™Ÿè³‡è¨Š 
         /// </summary>
         public string Account { get; set; }
 
         /// <summary>
-        /// ©I¥sºİ¨Ï¥ÎÀW¹D
+        /// å‘¼å«ç«¯ä½¿ç”¨é »é“
         /// </summary>
         public string Channel { get; set; }
+
         /// <summary>
-        /// ©I¥sºİ¨Ï¥ÎªÌIP
+        /// å‘¼å«ç«¯ä½¿ç”¨è€…IP
         /// </summary>
         public string UserIP { get; set; }
+
         /// <summary>
-        /// ©I¥sºİ¨t²Î¦WºÙ (·|¬ö¿ı¨ì Client_CustomData )
+        /// å‘¼å«ç«¯ç³»çµ±åç¨± (æœƒç´€éŒ„åˆ° Client_CustomData )
         /// </summary>
         public string SystemID { get; set; }
+
         /// <summary>
-        /// §Ö¨úªº°õ¦æ°Ê§@ ¹w³]¬° 0 ; 
-        /// 0 = ¹w³]¦æ¬°«ö·ÓAPI¬yµ{°õ¦æ; 
-        /// 1 = NonCache ¤£­n§Ö¨ú¡Aª½±µÅª¸ê®Æ®w(·½)¶Ç¦^ ; 
-        /// 2 = RefreshCache ±j­¢ RefreshCache ­«·s¨ú¸ê®Æ¨Ã¥B§ó·s§Ö¨ú 
+        /// å¿«å–çš„åŸ·è¡Œå‹•ä½œ é è¨­ç‚º 0 ; 
+        /// 0 = é è¨­è¡Œç‚ºæŒ‰ç…§APIæµç¨‹åŸ·è¡Œ; 
+        /// 1 = NonCache ä¸è¦å¿«å–ï¼Œç›´æ¥è®€è³‡æ–™åº«(æº)å‚³å› ; 
+        /// 2 = RefreshCache å¼·è¿« RefreshCache é‡æ–°å–è³‡æ–™ä¸¦ä¸”æ›´æ–°å¿«å– 
         /// </summary>
         public int CacheAction { get; set; }
 
         /// <summary>
-        /// ¥Î¨ÓÅçÃÒEC«áºİ¨t¦C-Ãş¦ü±K½XTOKEN¤Æ·§©À
+        /// ç”¨ä¾†é©—è­‰ECå¾Œç«¯ç³»åˆ—-é¡ä¼¼å¯†ç¢¼TOKENåŒ–æ¦‚å¿µ
         /// </summary>
         public string AuthHash { get; set; } = string.Empty;
 
         /// <summary>
-        /// ¥Î©óÅçÃÒ¬d¸ß Account-Ãş¦ü±b¸¹TOKEN¤Æ·§©À
+        /// ç”¨æ–¼é©—è­‰æŸ¥è©¢ Account-é¡ä¼¼å¸³è™ŸTOKENåŒ–æ¦‚å¿µ
         /// </summary>
         public string PrivateHash { get; set; } = string.Empty;
-
     }
 
-    public class QueryEPaperInformationModalExample: IExamplesProvider<QueryEPaperInformationModal>
+    public class QueryEPaperInformationModalExample : IMultipleExamplesProvider<QueryEPaperInformationModal>
     {
-        public QueryEPaperInformationModal GetExamples()
+        public IEnumerable<SwaggerExample<QueryEPaperInformationModal>> GetExamples()
         {
-            return new QueryEPaperInformationModal
+            yield return SwaggerExample.Create("Default", new QueryEPaperInformationModal
             {
                 Account = "A110000004",
                 BrkID = "9887",
                 CstAccount = "5002227",
                 Category = "1"
-            };
+            });
+
+            yield return SwaggerExample.Create("Default2", new QueryEPaperInformationModal
+            {
+                Account = "A110000004",
+                BrkID = "9887",
+                CstAccount = "5002245",
+                Category = "2"
+            });
         }
     }
 }
