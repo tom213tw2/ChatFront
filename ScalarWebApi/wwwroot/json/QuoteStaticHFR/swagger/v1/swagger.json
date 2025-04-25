@@ -1,0 +1,904 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "QuoteStatic.HFR",
+    "description": "Hangfire 排程註冊使用<br/>大部分排程是發動更新 QuoteStatic.API 的本機快取 (業務使用, 例如: WatchData)<br/>少部分排程是發動更新 QuoteStatic.HFR 的本機快取 (排程使用, 例如: KeyMap)<br/>",
+    "version": "2023.02.14"
+  },
+  "servers": [
+    {
+      "url": "/QuoteStaticHFR"
+    }
+  ],
+  "paths": {
+    "/api/RegisterJob_RenewCache_KeyMapCache": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 每1小時_更新HFR本機記憶體快取(KeyMap\\\\RemoteManage\\\\QuoteStatic-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "每1小時_更新HFR本機記憶體快取(KeyMap\\RemoteManage\\QuoteStatic-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "00 * * * *"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market1": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0800-1359_每1分鐘更新「1-上市」商品報價記憶體快取(WatchData-1-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0800-1359_每1分鐘更新「1-上市」商品報價記憶體快取(WatchData-1-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 8-13 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market2": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0800-1359_每1分鐘更新「2-上櫃」商品報價記憶體快取(WatchData-2-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0800-1359_每1分鐘更新「2-上櫃」商品報價記憶體快取(WatchData-2-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 8-13 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market3": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0800-1359_每1分鐘更新「3-期貨/選擇權」商品報價記憶體快取(WatchData-3-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0800-1359_每1分鐘更新「3-期貨/選擇權」商品報價記憶體快取(WatchData-3-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 8-13 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market4": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0800-1559_每1分鐘更新「4-興櫃」商品報價記憶體快取(WatchData-4-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0900-1559_每1分鐘更新「4-興櫃」商品報價記憶體快取(WatchData-4-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 8-15 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market151": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0900-1659_每1分鐘更新「151-港股-延遲」商品報價記憶體快取(WatchData-151-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0900-1659_每1分鐘更新「151-港股-延遲」商品報價記憶體快取(WatchData-151-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 9-16 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market152": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 2100-0559_每1分鐘更新「152-美股-道瓊紐約-延遲」商品報價記憶體快取(WatchData-152-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "2100-0559_每1分鐘更新「152-美股-道瓊紐約-延遲」商品報價記憶體快取(WatchData-152-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 0-5,21-23 * * 1-6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market154": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 2100-0559_每1分鐘更新「154-美股-那斯達克-延遲」商品報價記憶體快取(WatchData-154-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "2100-0559_每1分鐘更新「154-美股-那斯達克-延遲」商品報價記憶體快取(WatchData-154-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 0-5,21-23 * * 1-6"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market160": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0900-1559_每1分鐘更新「160-深股-延遲」商品報價記憶體快取(WatchData-160-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0900-1559_每1分鐘更新「160-深股-延遲」商品報價記憶體快取(WatchData-160-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 9-15 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_WatchData_Market161": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0900-1559_每1分鐘更新「161-滬股-延遲」商品報價記憶體快取(WatchData-160-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0900-1559_每1分鐘更新「161-滬股-延遲」商品報價記憶體快取(WatchData-161-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "* 9-15 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_StockRealTimeTick_Market1": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0800-1359_每10分鐘更新「1-上市」商品即時走勢記憶體快取(StockRealTimeTick-1-*、StockChartMinTick-1-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0800-1359_每10分鐘更新「1-上市」商品即時走勢記憶體快取(StockRealTimeTick-1-*、StockChartMinTick-1-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "*/10 8-13 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_StockRealTimeTick_Market2": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0800-1359_每10分鐘更新「2-上櫃」商品即時走勢記憶體快取(StockRealTimeTick-2-*、StockChartMinTick-2-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0800-1359_每10分鐘更新「2-上櫃」商品即時走勢記憶體快取(StockRealTimeTick-2-*、StockChartMinTick-2-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "*/10 8-13 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_StockRealTimeTick_Market3": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0800-1359_每10分鐘更新「3-期貨/選擇權」商品即時走勢記憶體快取(StockRealTimeTick-3-*、StockChartMinTick-3-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0800-1359_每10分鐘更新「3-期貨/選擇權」商品即時走勢記憶體快取(StockRealTimeTick-3-*、StockChartMinTick-3-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "*/10 8-13 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_StockRealTimeTick_Market4": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0800-1559_每10分鐘更新「4-興櫃」商品即時走勢記憶體快取(StockRealTimeTick-4-*、StockChartMinTick-4-*)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0800-1559_每10分鐘更新「4-興櫃」商品即時走勢記憶體快取(StockRealTimeTick-4-*、StockChartMinTick-4-*)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "*/10 8-15 * * 1-5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_StockAnalysisResult_Latest": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 1800、2000、2200、0000_更新盤後分析資料(最新一天)記憶體快取(StockAnalysisResultLatest)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "1800、2000、2200、0000_更新盤後分析資料(最新一天)記憶體快取(StockAnalysisResultLatest)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "00 00,18,20,22 * * *"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/RegisterJob_RenewCache_KLineDay_2Y": {
+      "get": {
+        "tags": [
+          "RecurringJob"
+        ],
+        "summary": "[新增/更新] 0001-2301_每小時01分更新兩年期日K資料(特定指數)",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "query",
+            "description": "排程名稱",
+            "schema": {
+              "type": "string",
+              "default": "0001-2301_每小時01分產生兩年期日K資料(特定指數)"
+            }
+          },
+          {
+            "name": "cronExpression",
+            "in": "query",
+            "description": "Cron表達式",
+            "schema": {
+              "type": "string",
+              "default": "01 * * * *"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/System/Version": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "取得 dll 版本資訊\r\nex: http://10.216.54.198/QuoteStaticHFR/System/Version",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/System/GetCacheKeyList": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "取得現有快取 Key 列表",
+        "description": "### ※ 若要檢視大量 Key 請用 Postman 或 Browser 等工具，Swagger 遇到數萬筆會容易當機\r\n\r\n### DEV: [http://localhost/QuoteStaticHFR/System/GetCacheKeyList](http://localhost/QuoteStaticHFR/System/GetCacheKeyList)\r\n### UAT: [http://10.216.54.198/QuoteStaticHFR/System/GetCacheKeyList](http://10.216.54.198/QuoteStaticHFR/System/GetCacheKeyList)",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/System/QueryCache": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "查詢指定快取",
+        "description": "### DEV: [http://localhost/QuoteStaticHFR/System/QueryCache?name=WatchData-1-0050](http://localhost/QuoteStaticHFR/System/QueryCache?name=WatchData-1-0050)\r\n### UAT: [http://10.216.54.198/QuoteStaticHFR/System/QueryCache?name=WatchData-1-0050](http://10.216.54.198/QuoteStaticHFR/System/QueryCache?name=WatchData-1-0050)",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/System/ClearCache": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "清除指定快取",
+        "description": "### DEV 清除全部: [http://localhost/QuoteStaticHFR/System/ClearCache](http://localhost/QuoteStaticHFR/System/ClearCache)\r\n### DEV 清除指定快取: [http://localhost/QuoteStaticHFR/System/ClearCache?name=WatchData-1-0050](http://localhost/QuoteStaticHFR/System/ClearCache?name=WatchData-1-0050)\r\n### UAT 清除全部: [http://10.216.54.198/QuoteStaticHFR/System/ClearCache](http://10.216.54.198/QuoteStaticHFR/System/ClearCache)\r\n### UAT 清除指定快取: [http://10.216.54.198/QuoteStaticHFR/System/ClearCache?name=WatchData-1-0050](http://10.216.54.198/QuoteStaticHFR/System/ClearCache?name=WatchData-1-0050)",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/System/RenewKeyMapCache": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "更新 KeyMap 快取",
+        "description": "### DEV: [http://localhost/QuoteStaticHFR/System/RenewKeyMapCache](http://localhost/QuoteStaticHFR/System/RenewKeyMapCache)\r\n### UAT: [http://10.216.54.198/QuoteStaticHFR/System/RenewKeyMapCache](http://10.216.54.198/QuoteStaticHFR/System/RenewKeyMapCache)",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}

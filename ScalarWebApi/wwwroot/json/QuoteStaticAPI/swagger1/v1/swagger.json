@@ -1,0 +1,521 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "QuoteStatic.API",
+    "version": "2023.02.14"
+  },
+  "servers": [
+    {
+      "url": "/QuoteStaticAPI"
+    }
+  ],
+  "paths": {
+    "/WatchData/{marketNo}/{stockId}": {
+      "get": {
+        "tags": [
+          "QuoteCache"
+        ],
+        "summary": "取得 商品報價 快取 (若無快取則查詢並更新)",
+        "description": "### DEV: [http://localhost/QuoteStaticAPI/WatchData/1/0050](http://localhost/QuoteStaticAPI/WatchData/1/0050)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/WatchData/1/0050](http://10.216.54.198/QuoteStaticAPI/WatchData/1/0050)",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ecid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/WatchData/{marketNo}/{stockId}/{ecid}": {
+      "get": {
+        "tags": [
+          "QuoteCache"
+        ],
+        "summary": "取得 商品報價 快取 (若無快取則查詢並更新)",
+        "description": "### DEV: [http://localhost/QuoteStaticAPI/WatchData/1/0050](http://localhost/QuoteStaticAPI/WatchData/1/0050)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/WatchData/1/0050](http://10.216.54.198/QuoteStaticAPI/WatchData/1/0050)",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ecid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/WatchDataWithAfterHourAnalysis/{marketNo}/{stockId}": {
+      "get": {
+        "tags": [
+          "QuoteCache"
+        ],
+        "summary": "取得 商品報價 + 晴雨分析 快取 (若無快取則查詢並更新)",
+        "description": "### DEV: [http://localhost/QuoteStaticAPI/WatchDataWithAfterHourAnalysis/1/0050](http://localhost/QuoteStaticAPI/WatchDataWithAfterHourAnalysis/1/0050)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/WatchDataWithAfterHourAnalysis/1/0050](http://10.216.54.198/QuoteStaticAPI/WatchDataWithAfterHourAnalysis/1/0050)",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ecid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/WatchDataWithAfterHourAnalysis/{marketNo}/{stockId}/{ecid}": {
+      "get": {
+        "tags": [
+          "QuoteCache"
+        ],
+        "summary": "取得 商品報價 + 晴雨分析 快取 (若無快取則查詢並更新)",
+        "description": "### DEV: [http://localhost/QuoteStaticAPI/WatchDataWithAfterHourAnalysis/1/0050](http://localhost/QuoteStaticAPI/WatchDataWithAfterHourAnalysis/1/0050)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/WatchDataWithAfterHourAnalysis/1/0050](http://10.216.54.198/QuoteStaticAPI/WatchDataWithAfterHourAnalysis/1/0050)",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ecid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/KLineDay2Y/{marketNo}/{stockId}": {
+      "get": {
+        "tags": [
+          "QuoteCache"
+        ],
+        "summary": "取得 指定商品 2年期日K(非盤中) 快取 (若無快取則查詢並更新)",
+        "description": "## ※ 目前僅開放查詢特定指數\r\n    { \"100000\", 1 },    // 市加權\r\n    { \"COMP\", 154 },    // 那斯達克指數\r\n    { \"SOX\", 154 },     // 費半指數\r\n    { \"NDX\", 154 }      // NASDAQ 100 Index\r\n    \r\n### DEV: [http://localhost/QuoteStaticAPI/KLineDay2Y/1/100000](http://localhost/QuoteStaticAPI/KLineDay2Y/1/100000)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/KLineDay2Y/1/100000](http://10.216.54.198/QuoteStaticAPI/KLineDay2Y/1/100000)",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/StockRealTimeTick/{marketNo}/{stockId}": {
+      "get": {
+        "tags": [
+          "QuoteCache"
+        ],
+        "summary": "取得 商品即時走勢 快取 (若無快取則查詢並更新)",
+        "description": "### DEV: [http://localhost/QuoteStaticAPI/StockRealTimeTick/1/0050](http://localhost/QuoteStaticAPI/StockRealTimeTick/1/0050)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/StockRealTimeTick/1/0050](http://10.216.54.198/QuoteStaticAPI/StockRealTimeTick/1/0050)",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/StockChartMinTick/{marketNo}/{stockId}": {
+      "get": {
+        "tags": [
+          "QuoteCache"
+        ],
+        "summary": "取得 商品分時走勢圖 快取 (若無快取則查詢並更新)",
+        "description": "### DEV: [http://localhost/QuoteStaticAPI/StockChartMinTick/1/0050](http://localhost/QuoteStaticAPI/StockChartMinTick/1/0050)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/StockChartMinTick/1/0050](http://10.216.54.198/QuoteStaticAPI/StockChartMinTick/1/0050)",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Renew/RenewStockWatchDataCache": {
+      "post": {
+        "tags": [
+          "Renew"
+        ],
+        "summary": "更新 WatchData 快取 (全部/指定市場/指定商品)",
+        "description": "## 情境1: 更新「全部商品」報價快取\r\n{\r\n  \"marketNo\": 999\r\n}\r\n\r\n## 情境2: 更新「指定市場下商品」報價快取\r\n{\r\n  \"marketNo\": 1\r\n}\r\n\r\n## 情境3: 更新「單一商品」報價快取\r\n{\r\n  \"marketNo\": 1,\r\n  \"stockId\": \"0050\"\r\n}",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "query",
+            "description": "市場別代號，如未傳入則更新全部",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 999
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "query",
+            "description": "",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Renew/RenewStockAnalysisResultLatestCache": {
+      "post": {
+        "tags": [
+          "Renew"
+        ],
+        "summary": "更新 盤後分析資料(最新一天) 快取",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Renew/RenewKLineDay2YCache": {
+      "post": {
+        "tags": [
+          "Renew"
+        ],
+        "summary": "更新 特定指數2年期日K 快取",
+        "description": "## 更新特定指數\r\n{\r\n  \"100000\": 1,\r\n  \"COMP\": 154,\r\n  \"SOX\": 154,\r\n  \"NDX\": 154\r\n}\r\n\r\n|   **市場別**   |   **代號**   |   **名稱**   |\r\n| --- | --- | --- |\r\n|   1   |   100000   |   市加權   |\r\n|   154   |   COMP   |   那斯達克指數   |\r\n|   154   |   SOX   |   費半指數   |\r\n|   154   |   NDX   |   NASDAQ 100 Index   |",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Renew/RenewStockRealTimeTickCache": {
+      "post": {
+        "tags": [
+          "Renew"
+        ],
+        "summary": "更新 最近交易日分K 快取",
+        "description": "## 情境1: 更新指定商品\r\n{\r\n  \"marketNo\": 1, \"stockId\": 2885\r\n}\r\n\r\n## 情境2: 更新指定市場別\r\n{\r\n  \"marketNo\": 1\r\n}",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/Renew/RenewStockChartMinTickCache": {
+      "post": {
+        "tags": [
+          "Renew"
+        ],
+        "summary": "更新 個股分時走勢圖資料 快取",
+        "description": "預設輸入 keyword = PadTick ，會自動補沒交易時的tick\r\n例如: 2885 交易日第一個 tick 時間為 09:00；開盤時間 09:00 => 不需要補 Tick\r\n例如: 1260 交易日第一個 tick 時間為 10:19；開盤時間 09:00 => 需要補 79 個 開盤參考價的 Tick (09:00 ~ 10:18)\r\n\r\n## 情境1: 更新指定商品\r\n{\r\n  \"marketNo\": 1, \"stockId\": 2885, \"keyword\": \"PadTick\"\r\n}\r\n\r\n## 情境2: 更新指定市場別\r\n{\r\n  \"marketNo\": 1, \"keyword\": \"PadTick\"\r\n}",
+        "parameters": [
+          {
+            "name": "marketNo",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "stockId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "keyword",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": "PadTick"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/System/Version": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "取得 dll 版本資訊\r\nex: http://10.216.54.198/QuoteStaticAPI/System/Version",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/System/GetCacheKeyList": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "取得現有快取 Key 列表",
+        "description": "### ※ 若要檢視大量 Key 請用 Postman 或 Browser 等工具，Swagger 遇到數萬筆會容易當機\r\n\r\n### DEV: [http://localhost/QuoteStaticAPI/System/GetCacheKeyList](http://localhost/QuoteStaticAPI/System/GetCacheKeyList)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/System/GetCacheKeyList](http://10.216.54.198/QuoteStaticAPI/System/GetCacheKeyList)",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/System/QueryCache": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "查詢指定快取",
+        "description": "### DEV: [http://localhost/QuoteStaticAPI/System/QueryCache?name=WatchData-1-0050](http://localhost/QuoteStaticAPI/System/QueryCache?name=WatchData-1-0050)\r\n### UAT: [http://10.216.54.198/QuoteStaticAPI/System/QueryCache?name=WatchData-1-0050](http://10.216.54.198/QuoteStaticAPI/System/QueryCache?name=WatchData-1-0050)",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/System/ClearCache": {
+      "get": {
+        "tags": [
+          "System"
+        ],
+        "summary": "清除指定快取",
+        "description": "### DEV 清除全部: [http://localhost/QuoteStaticAPI/System/ClearCache](http://localhost/QuoteStaticAPI/System/ClearCache)\r\n### DEV 清除指定快取: [http://localhost/QuoteStaticAPI/System/ClearCache?name=WatchData-1-0050](http://localhost/QuoteStaticAPI/System/ClearCache?name=WatchData-1-0050)\r\n### UAT 清除全部: [http://10.216.54.198/QuoteStaticAPI/System/ClearCache](http://10.216.54.198/QuoteStaticAPI/System/ClearCache)\r\n### UAT 清除指定快取: [http://10.216.54.198/QuoteStaticAPI/System/ClearCache?name=WatchData-1-0050](http://10.216.54.198/QuoteStaticAPI/System/ClearCache?name=WatchData-1-0050)",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {}
+}
